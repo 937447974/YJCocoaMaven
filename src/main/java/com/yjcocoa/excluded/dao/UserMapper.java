@@ -17,10 +17,8 @@ public interface UserMapper {
     @Transactional(propagation = Propagation.MANDATORY)
     void insertUser(User user);
 
-    @Transactional(propagation = Propagation.MANDATORY)
     void deleteUser(String code);
 
-    @Transactional(propagation = Propagation.MANDATORY)
     void updateUser(User user);
 
     List<User> selectUsers();

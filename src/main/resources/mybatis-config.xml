@@ -10,6 +10,6 @@
         <package name="com.yjcocoa.excluded.po"/>
     </typeAliases>
     <plugins>
-        <plugin interceptor="com.github.pagehelper.PageInterceptor"/>
+        <plugin interceptor="com.yjcocoa.mybatis.DynamicDataSourceInterceptor"/>
     </plugins>
 </configuration>

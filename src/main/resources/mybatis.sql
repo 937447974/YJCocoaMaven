@@ -6,12 +6,21 @@ USE yjcocoa;
 #建表
 CREATE TABLE user (
   id   INT(32) PRIMARY KEY AUTO_INCREMENT,
-  code VARCHAR(32) NOT NULL UNIQUE,
+  code VARCHAR(32) NOT NULL,
   name VARCHAR(50) NOT NULL
 );
 
-# 查看表结构
-DESCRIBE user;
+#建立从库
+DROP DATABASE yjcocoa_salve;
+CREATE DATABASE yjcocoa_salve;
+USE yjcocoa_salve;
+
+#建表
+CREATE TABLE user (
+  id   INT(32) PRIMARY KEY AUTO_INCREMENT,
+  code VARCHAR(32) NOT NULL,
+  name VARCHAR(50) NOT NULL
+);
 
 # insert
 INSERT user (code, name)
