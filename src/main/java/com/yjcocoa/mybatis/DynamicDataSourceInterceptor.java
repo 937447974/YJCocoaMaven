@@ -8,7 +8,7 @@ import java.util.Properties;
 
 /**
  * <p>Title: DynamicDataSourceInterceptor</p>
- * <p>Description: 数据源拦截器</p>
+ * <p>Description: 数据源拦截校验</p>
  * <p>HomePage: https://github.com/937447974/YJCocoaMaven</p>
  * <p>YJ技术支持群: 557445088</p>
  * <p>Create Time: 2017/10/30 下午12:01</p>

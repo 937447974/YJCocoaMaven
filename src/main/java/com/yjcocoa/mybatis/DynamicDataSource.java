@@ -22,17 +22,11 @@ import java.util.Map;
  */
 public class DynamicDataSource extends AbstractRoutingDataSource {
 
-    /**
-     * 主库
-     */
+    /** 主库 */
     private DataSource masterDataSource;
-    /**
-     * 从库
-     */
+    /** 从库 */
     private List<DataSource> slaveDataSources;
-    /**
-     * 从库偏移量
-     */
+    /** 从库偏移量 */
     private Integer slaveIndex = 0;
 
     @Override
@@ -53,7 +47,6 @@ public class DynamicDataSource extends AbstractRoutingDataSource {
     @Override
     protected Object determineCurrentLookupKey() {
         if (DynamicDataSourceHolder.getMaster()) {
-            System.out.println("master");
             return "master";
         }
         if (this.slaveDataSources.size() != 1) {
@@ -64,7 +57,6 @@ public class DynamicDataSource extends AbstractRoutingDataSource {
                 }
             }
         }
-        System.out.println("slave-" + this.slaveIndex);
         return "slave-" + this.slaveIndex;
     }
 

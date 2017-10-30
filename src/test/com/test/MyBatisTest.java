@@ -6,7 +6,6 @@ import com.yjcocoa.mybatis.DynamicDataSourceHolder;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 
 /**
  * MyBatisTest.java
@@ -15,57 +14,35 @@ import org.springframework.jdbc.datasource.DataSourceTransactionManager;
  * Copyright © 2017年 yjcocoa. All rights reserved.
  */
 public class MyBatisTest {
-    private UserService userService;
 
     @Test
-    public void test() {
-        this.buildData();
+    public void test() throws Exception {
+        ApplicationContext appContext = new ClassPathXmlApplicationContext("spring-config.xml");
+        UserService userService = appContext.getBean(UserService.class);
+        System.out.println("默认从库");
+        System.out.println(userService.selectUsers()); //从库查询
         // 主增 从查
-        User user = new User("937447974-one", "阳君");
+        User user = new User("937447974-1", "阳君");
+        DynamicDataSourceHolder.setMaster(true, () -> { // 主库增加
+            System.out.println("切换到主库");
+            userService.insertUser(user);
+            System.out.println(userService.selectUsers());
+        });
         try {
-            DynamicDataSourceHolder.setMaster(true, () -> {
-                this.userService.insertUser(user);
-                System.out.println(this.userService.selectUsers());
-            });
             DynamicDataSourceHolder.setMaster(false, () -> {
-                System.out.println(this.userService.selectUsers());
-                this.userService.insertUser(user);
+                System.out.println("切换到从库");
+                System.out.println(userService.selectUsers()); // xml开启缓存会查询到主库数据
+                userService.insertUser(user); // 从库插入失败
             });
         } catch (Exception e) {
-            System.out.println(e);
+            System.out.println("从库操作报错");
+            user.setCode("93447974-2");
+            DynamicDataSourceHolder.setMaster(true, () -> {// 回到主库增加成功
+                System.out.println("切换到主库");
+                userService.insertUser(user);
+                System.out.println(userService.selectUsers());
+            });
         }
-
-    }
-
-//    @Test
-//    public void masterTest1() {
-//        // 主增主查
-//        this.buildData();
-//        TransactionStatus status = transactionManager.getTransaction(new DefaultTransactionDefinition());
-//        DynamicDataSourceHolder.setMaster(true);
-//        User user = new User("937447974-one2", "阳君");
-//        this.userService.insertUser(user);
-//        System.out.println(this.userService.selectUsers());
-//        DynamicDataSourceHolder.setMaster(true);// 测试切换是否会回滚
-//        transactionManager.commit(status);
-//        System.out.println(this.userService.selectUsers());
-//    }
-
-    private void userTest() {
-        User user = new User("937447974-one", "阳君");
-        this.userService.insertUser(user);
-
-        user.setName("yangjun");
-        this.userService.updateUser(user);
-
-        System.out.println(this.userService.selectUsers());
-
-        this.userService.deleteUser(user.getCode());
-    }
-
-    private void buildData() {
-        ApplicationContext appContext = new ClassPathXmlApplicationContext("spring-config.xml");
-        this.userService = appContext.getBean(UserService.class);
     }
 
 }

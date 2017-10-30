@@ -1,5 +1,5 @@
 #建立库
-DROP DATABASE yjcocoa;
+# DROP DATABASE yjcocoa;
 CREATE DATABASE yjcocoa;
 USE yjcocoa;
 
@@ -11,7 +11,7 @@ CREATE TABLE user (
 );
 
 #建立从库
-DROP DATABASE yjcocoa_salve;
+# DROP DATABASE yjcocoa_salve;
 CREATE DATABASE yjcocoa_salve;
 USE yjcocoa_salve;
 
