@@ -34,7 +34,7 @@ public class DynamicDataSourceHolder {
     }
 
     /**
-     * 切换主从库，自带事务管理；主库调用完毕自动切换到从库
+     * 切换主从库，自带事务管理
      *
      * @param master 是否使用主库
      * @param lambda 业务调用
@@ -59,9 +59,6 @@ public class DynamicDataSourceHolder {
             throw e;
         } finally {
             lambda = null;
-            if (master) {
-                setMaster(false, null);
-            }
         }
     }
 
