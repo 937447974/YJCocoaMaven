@@ -36,11 +36,6 @@
     <dependencies>
 
         <!-- ① spring   -->
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-aspects</artifactId>
-            <version>${spring.version}</version>
-        </dependency>
         <!--jdbc事务-->
         <dependency>
             <groupId>org.springframework</groupId>
@@ -78,13 +73,6 @@
             <groupId>org.mybatis</groupId>
             <artifactId>mybatis</artifactId>
             <version>${mybatis.version}</version>
-        </dependency>
-
-        <!-- pagehelper 分页插件 -->
-        <dependency>
-            <groupId>com.github.pagehelper</groupId>
-            <artifactId>pagehelper</artifactId>
-            <version>5.1.2</version>
         </dependency>
 
         <!-- slf4j 日志 -->
