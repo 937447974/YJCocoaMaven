@@ -32,7 +32,7 @@ SOFTWARE.
 
     <groupId>com.github.937447974</groupId>
     <artifactId>yjcocoa</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>17.11.1</version>
     <packaging>jar</packaging>
 
     <name>YJCocoa</name>
@@ -65,6 +65,8 @@ SOFTWARE.
         <spring.version>5.0.1.RELEASE</spring.version>
         <mybatis.version>3.4.5</mybatis.version>
         <mysql.version>6.0.6</mysql.version>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
         <!--指定Maven用什么编码来读取源码及文档-->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <!--指定Maven用什么编码来呈现站点的HTML文件-->
@@ -158,18 +160,10 @@ SOFTWARE.
                     </resource>
                 </resources>
                 <plugins>
-                    <!--Compiler-->
-                    <plugin>
-                        <artifactId>maven-compiler-plugin</artifactId>
-                        <configuration>
-                            <source>1.6</source>
-                            <target>1.6</target>
-                        </configuration>
-                    </plugin>
-                    <!-- Source -->
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-source-plugin</artifactId>
+                        <version>3.0.1</version>
                         <configuration>
                             <attach>true</attach>
                         </configuration>
@@ -186,6 +180,7 @@ SOFTWARE.
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-javadoc-plugin</artifactId>
+                        <version>2.10.4</version>
                         <executions>
                             <execution>
                                 <phase>package</phase>
@@ -202,6 +197,7 @@ SOFTWARE.
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-gpg-plugin</artifactId>
+                        <version>1.6</version>
                         <executions>
                             <execution>
                                 <id>sign-artifacts</id>
