@@ -67,13 +67,14 @@ SOFTWARE.
         <mysql.version>6.0.6</mysql.version>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
+        <!--<maven.build.encoding>UTF-8</maven.build.encoding>-->
         <!--指定Maven用什么编码来读取源码及文档-->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <!--指定Maven用什么编码来呈现站点的HTML文件-->
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <javadocExecutable>/Library/Java/JavaVirtualMachines/jdk-9.0.1.jdk/Contents/Home/bin/javadoc</javadocExecutable>
     </properties>
 
-    
     <profiles>
         <profile>
             <id>dev</id>
@@ -154,9 +155,6 @@ SOFTWARE.
                 <resources>
                     <resource>
                         <directory>src/main/java</directory>
-                        <excludes>
-                            <exclude>**/excluded/**</exclude>
-                        </excludes>
                     </resource>
                 </resources>
                 <plugins>
