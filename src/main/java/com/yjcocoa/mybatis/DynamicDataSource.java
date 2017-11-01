@@ -3,6 +3,7 @@ package com.yjcocoa.mybatis;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.jdbc.datasource.lookup.AbstractRoutingDataSource;
+import org.springframework.stereotype.Component;
 
 import javax.sql.DataSource;
 import java.util.HashMap;
@@ -18,8 +19,9 @@ import java.util.Map;
  * <p>Copyright © 2017年 yjcocoa. All rights reserved.</p>
  *
  * @author 阳君
- * @since
+ * @since 17.11.1
  */
+@Component
 public class DynamicDataSource extends AbstractRoutingDataSource {
 
     /** 主库 */
@@ -35,7 +37,7 @@ public class DynamicDataSource extends AbstractRoutingDataSource {
             throw new IllegalArgumentException("Property 'masterDataSource、slaveDataSources' is required");
         }
         this.setDefaultTargetDataSource(this.masterDataSource);
-        Map<Object, Object> targetDataSources = new HashMap(this.slaveDataSources.size());
+        Map<Object, Object> targetDataSources = new HashMap<>(this.slaveDataSources.size());
         targetDataSources.put("master", this.masterDataSource);
         for (int i = 0; i < this.slaveDataSources.size(); i++) {
             targetDataSources.put("slave-" + i, this.slaveDataSources.get(i));

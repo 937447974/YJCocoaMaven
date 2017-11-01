@@ -15,7 +15,7 @@ import java.util.Properties;
  * <p>Copyright © 2017年 yjcocoa. All rights reserved.</p>
  *
  * @author 阳君
- * @since
+ * @since 17.11.1
  */
 @Intercepts({@Signature(type = Executor.class, method = "update", args = {MappedStatement.class, Object.class})})
 public class DynamicDataSourceInterceptor implements Interceptor {
