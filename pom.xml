@@ -75,6 +75,9 @@ SOFTWARE.
     <profiles>
         <profile>
             <id>dev</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
             <dependencies>
                 <!-- ① spring   -->
                 <!--jdbc事务-->
@@ -132,9 +135,6 @@ SOFTWARE.
                     <scope>test</scope>
                 </dependency>
             </dependencies>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
             <build>
                 <resources>
                     <resource>
@@ -144,21 +144,10 @@ SOFTWARE.
                         </includes>
                     </resource>
                 </resources>
-                <plugins>
-                    <!--Compiler-->
-                    <plugin>
-                        <artifactId>maven-compiler-plugin</artifactId>
-                        <configuration>
-                            <source>1.6</source>
-                            <target>1.6</target>
-                        </configuration>
-                    </plugin>
-                </plugins>
             </build>
         </profile>
         <profile>
             <id>release</id>
-
             <build>
                 <resources>
                     <resource>
@@ -225,6 +214,25 @@ SOFTWARE.
                     </plugin>
                 </plugins>
             </build>
+            <dependencies>
+                <!-- spring -->
+                <dependency>
+                    <groupId>org.springframework</groupId>
+                    <artifactId>spring-context</artifactId>
+                    <version>${spring.version}</version>
+                </dependency>
+                <dependency>
+                    <groupId>org.springframework</groupId>
+                    <artifactId>spring-jdbc</artifactId>
+                    <version>${spring.version}</version>
+                </dependency>
+                <!-- mybatis-->
+                <dependency>
+                    <groupId>org.mybatis</groupId>
+                    <artifactId>mybatis</artifactId>
+                    <version>${mybatis.version}</version>
+                </dependency>
+            </dependencies>
             <distributionManagement>
                 <snapshotRepository>
                     <id>oss</id>
