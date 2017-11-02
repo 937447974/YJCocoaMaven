@@ -1,29 +1,54 @@
 ![](https://raw.githubusercontent.com/937447974/Blog/master/Resources/2016110201.png)
 
-[![Language: Java](https://img.shields.io/badge/language-Java-orange.svg?style=flat)](https://developer.apple.com/reference/objectivec) [![Platform](https://img.shields.io/cocoapods/p/Maven.svg?style=flat)](http://cocoadocs.org/docsets/YJCocoa) [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://github.com/937447974/YJCocoa/blob/master/LICENSE) [![CocoaPods](https://img.shields.io/cocoapods/v/YJCocoa.svg?style=flat)](http://cocoapods.org) ![Apps](https://img.shields.io/cocoapods/at/YJCocoa.svg?style=flat)
-
+![Language: Java](https://img.shields.io/badge/language-Java-orange.svg?style=flat)
+![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)
 [![Maven central](https://maven-badges.herokuapp.com/maven-central/com.github.937447974/yjcocoa/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.github.937447974/yjcocoa)
 ![QQ群](https://img.shields.io/badge/QQ群-557445088-blue.svg?style=flat)
 
 YJ 系列 Maven 开源库
 
-[![Build Status](https://travis-ci.org/937447974/YJCocoaMaven.svg?branch=master)](https://travis-ci.org/937447974/YJCocoaMaven)
+**Maven 安装**
 
-333
+```pom
+<dependency>
+    <groupId>com.github.937447974</groupId>
+    <artifactId>yjcocoa</artifactId>
+    <version>17.11.1</version>
+</dependency>
+```
 
+# 1 MyBatis
 
-[![Build Status](https://travis-ci.org/mybatis/mybatis-3.svg?branch=master)](https://travis-ci.org/mybatis/mybatis-3)
-[![Maven central](https://maven-badges.herokuapp.com/maven-central/org.mybatis/mybatis/badge.svg)](https://maven-badges.herokuapp.com/maven-central/org.mybatis/mybatis)
-http://search.maven.org/#artifactdetails%7Ccom.github.937447974%7Cyjcocoa%7C17.11.1%7Cjar
+mybatis 动态数据源，支持一主多从架构，包含自动事务管理。
 
-https://maven-badges.herokuapp.com/maven-central/com.github/yjcocoa
+默认连接从库，切换主库如下所示。
 
-[![License](http://img.shields.io/:license-apache-brightgreen.svg)](http://www.apache.org/licenses/LICENSE-2.0.html)
+```java
+DynamicDataSourceHolder.setMaster(true, () -> { // 主库切换
+    System.out.println("切换到主库");
+});
+```
 
+----------
 
-[![Build Status](https://travis-ci.org/937447974/YJCocoaMaven.svg?branch=master)](https://travis-ci.org/937447974/YJCocoaMaven)
+# <a id="Appendix">Appendix
 
-[![Dependency Status](https://www.versioneye.com/user/projects/5932123f22f278003c5f851e/badge.svg?style=flat)](https://www.versioneye.com/user/projects/5932123f22f278003c5f851e)
+## Author
 
+姓名：阳君
 
-![mybatis](http://mybatis.github.io/images/mybatis-logo.png)
+QQ：937447974
+
+YJ技术支持群：557445088
+
+职位：滴滴 iOS 高级工程师
+
+如果你觉得这个框架很赞，请点击右上角的Star按钮；如果你对我的框架感兴趣，并想持续获得本人最新的框架源文件，欢迎点击右上角的Fork按钮。
+
+如果你也想来和我们一起在滴滴从事iOS研发工作，欢迎投递简历到937447974@qq.com。
+
+## Copyright
+
+CSDN：http://blog.csdn.net/y550918116j
+
+GitHub：https://github.com/937447974
