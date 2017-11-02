@@ -6,8 +6,4 @@ dist: precise
 
 jdk:
   - oraclejdk8
-
-cache:
-  directories:
-  - .autoconf
-  - $HOME/.m2
+  - openjdk8
