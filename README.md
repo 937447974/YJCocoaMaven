@@ -7,6 +7,10 @@
 
 YJ 系列 Maven 开源库
 
+[![Build Status](https://travis-ci.org/937447974/YJCocoaMaven.svg?branch=master)](https://travis-ci.org/937447974/YJCocoaMaven)
+
+333
+
 
 [![Build Status](https://travis-ci.org/mybatis/mybatis-3.svg?branch=master)](https://travis-ci.org/mybatis/mybatis-3)
 [![Maven central](https://maven-badges.herokuapp.com/maven-central/org.mybatis/mybatis/badge.svg)](https://maven-badges.herokuapp.com/maven-central/org.mybatis/mybatis)
