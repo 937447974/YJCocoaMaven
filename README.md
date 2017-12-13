@@ -2,6 +2,7 @@
 
 ![Language: Java](https://img.shields.io/badge/language-Java-orange.svg?style=flat)
 ![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)
+![](https://travis-ci.org/937447974/YJCocoaMaven.svg?branch=master)
 [![Maven central](https://maven-badges.herokuapp.com/maven-central/com.github.937447974/yjcocoa/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.github.937447974/yjcocoa)
 ![QQ群](https://img.shields.io/badge/QQ群-557445088-blue.svg?style=flat)
 
